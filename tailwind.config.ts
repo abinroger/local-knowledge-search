@@ -1,0 +1,106 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'monospace'],
+      },
+      colors: {
+        primary: {
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
+        },
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+        },
+        success: '#10b981',
+        warning: '#f59e0b',
+        error: '#ef4444',
+        info: '#3b82f6',
+      },
+      spacing: {
+        '0.5': '2px',
+        '1': '4px',
+        '2': '8px',
+        '3': '12px',
+        '4': '16px',
+        '5': '20px',
+        '6': '24px',
+        '8': '32px',
+        '10': '40px',
+        '12': '48px',
+        '16': '64px',
+        '20': '80px',
+        '24': '96px',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'lg': '12px',
+        'xl': '16px',
+        '2xl': '24px',
+      },
+      boxShadow: {
+        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'DEFAULT': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        'elegant': '0 4px 20px 0 rgba(0, 0, 0, 0.08)',
+        'glow': '0 0 20px rgba(99, 102, 241, 0.2)',
+      },
+      transitionTimingFunction: {
+        'ease-out': 'cubic-bezier(0.0, 0.0, 0.2, 1)',
+        'ease-in': 'cubic-bezier(0.4, 0.0, 1, 1)',
+        'ease-in-out': 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 200ms ease-out',
+        'slide-up': 'slideUp 200ms ease-out',
+        'scale-in': 'scaleIn 150ms ease-out',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.1)' },
+          '50%': { boxShadow: '0 0 30px rgba(99, 102, 241, 0.3)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
