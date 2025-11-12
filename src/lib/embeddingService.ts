@@ -78,7 +78,7 @@ export class EmbeddingService {
       this.pipeline = await pipeline(
         'feature-extraction',
         EMBEDDING_CONFIG.model
-      );
+      ) as any; // Type assertion for Transformers.js compatibility
 
       const initTime = Date.now() - startTime;
       console.log(`Embedding model initialized in ${initTime}ms`);

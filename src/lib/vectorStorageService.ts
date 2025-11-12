@@ -122,7 +122,11 @@ export class VectorStorageService {
       console.log('Initializing vector storage with LanceDB...');
 
       // Connect to LanceDB (will use IndexedDB in browser)
-      this.db = await connect(this.dbPath);
+      this.db = await connect(this.dbPath) as any; // Type assertion for LanceDB compatibility
+
+      if (!this.db) {
+        throw new Error('Failed to connect to LanceDB');
+      }
 
       // Check if table exists, create if not
       const tableNames = await this.db.tableNames();
