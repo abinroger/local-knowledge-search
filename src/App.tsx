@@ -18,13 +18,13 @@ interface AppState {
   searchResults: MockSearchResult[];
   isInitialized: boolean;
   isLoading: boolean;
-  isProcessing: boolean;
-  processingFile: string;
-  processingProgress: number;
-  processingStage: string;
-  searchQuery: string;
-  searchLoading: boolean;
   error: string | null;
+  isProcessing: boolean;
+  processingStage: string;
+  processingProgress: number;
+  processingFile: string;
+  searchLoading: boolean;
+  searchQuery: string;
 }
 
 const initialState: AppState = {
@@ -43,7 +43,20 @@ const initialState: AppState = {
 };
 
 export default function App() {
-  const [state, setState] = useState<AppState>(initialState);
+    const [state, setState] = useState<AppState>({
+    activeTab: 'upload',
+    documents: [],
+    searchResults: [],
+    isInitialized: false,
+    isLoading: false,
+    error: null,
+    isProcessing: false,
+    processingStage: '',
+    processingProgress: 0,
+    processingFile: '',
+    searchLoading: false,
+    searchQuery: ''
+  });
 
   useEffect(() => {
     const initializeApp = async () => {
