@@ -75,8 +75,6 @@ export class KnowledgeSearchService {
 
       this.isInitialized = true;
       onProgress?.('System ready', 100);
-
-      console.log('Knowledge search service initialized successfully');
     } catch (error) {
       this.initializationPromise = null;
       throw new Error(`Knowledge search service initialization failed: ${error}`);

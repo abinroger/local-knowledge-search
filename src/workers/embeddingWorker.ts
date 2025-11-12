@@ -40,12 +40,8 @@ class EmbeddingWorker {
 
   async initialize(): Promise<void> {
     try {
-      console.log('[Worker] Initializing embedding service...');
-
       await embeddingService.initialize();
       this.isInitialized = true;
-
-      console.log('[Worker] Embedding service initialized successfully');
     } catch (error) {
       console.error('[Worker] Failed to initialize embedding service:', error);
       throw error;

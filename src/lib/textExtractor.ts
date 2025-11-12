@@ -173,13 +173,6 @@ export async function extractTextFromFile(file: File): Promise<ProcessingResult>
       extractedText
     };
 
-    console.log(`Text extraction completed in ${Date.now() - startTime}ms:`, {
-      filename: file.name,
-      fileType,
-      textLength: extractedText.length,
-      chunkCount: chunks.length
-    });
-
     return {
       success: true,
       metadata,

@@ -43,20 +43,7 @@ const initialState: AppState = {
 };
 
 export default function App() {
-    const [state, setState] = useState<AppState>({
-    activeTab: 'upload',
-    documents: [],
-    searchResults: [],
-    isInitialized: false,
-    isLoading: false,
-    error: null,
-    isProcessing: false,
-    processingStage: '',
-    processingProgress: 0,
-    processingFile: '',
-    searchLoading: false,
-    searchQuery: ''
-  });
+    const [state, setState] = useState<AppState>(initialState);
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -98,7 +85,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100">
+    <div className="min-h-screen bg-linear-to-br from-neutral-50 via-white to-neutral-100">
       <AppHeader documentsCount={state.documents.length} />
 
       <AppNavigation
@@ -199,8 +186,8 @@ function AppContent({ state, setState }: AppContentProps) {
     }
   }, [setState]);
 
-  const handleResultClick = useCallback((result: MockSearchResult) => {
-    console.log('Result clicked:', result);
+  const handleResultClick = useCallback((_result: MockSearchResult) => {
+    // Handle result click
   }, []);
 
   const handleDeleteDocument = useCallback(async (documentId: string) => {

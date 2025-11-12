@@ -97,14 +97,6 @@ export function chunkText(text: string, documentId: string): DocumentChunk[] {
     chunkIndex++;
   }
 
-  console.log(`Text chunked into ${chunks.length} segments:`, {
-    documentId,
-    totalWords: words.length,
-    chunksCreated: chunks.length,
-    averageWordsPerChunk: Math.round(words.length / chunks.length),
-    config: CHUNKING_CONFIG
-  });
-
   return chunks;
 }
 

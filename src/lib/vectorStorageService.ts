@@ -119,9 +119,8 @@ export class VectorStorageService {
     }
 
     try {
-      console.log('Initializing vector storage with LanceDB...');
-
       // Connect to LanceDB (will use IndexedDB in browser)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       this.db = await connect(this.dbPath) as any; // Type assertion for LanceDB compatibility
 
       if (!this.db) {
@@ -133,7 +132,6 @@ export class VectorStorageService {
 
       if (tableNames.includes(this.tableName)) {
         this.table = await this.db.openTable(this.tableName);
-        console.log('Opened existing vector table');
       } else {
         // Create table with sample schema
         const sampleRecord: VectorRecord = {
@@ -157,12 +155,9 @@ export class VectorStorageService {
 
         // Remove sample record
         await this.table.delete("id = 'sample'");
-
-        console.log('Created new vector table');
       }
 
       this.isInitialized = true;
-      console.log('Vector storage initialized successfully');
     } catch (error) {
       console.error('Failed to initialize vector storage:', error);
       throw new Error(`Vector storage initialization failed: ${error}`);
@@ -219,8 +214,6 @@ export class VectorStorageService {
 
       // Insert records into table
       await this.table.add(vectorRecords);
-
-      console.log(`Stored ${vectorRecords.length} vector records for document ${documentMetadata.filename}`);
     } catch (error) {
       console.error('Failed to store embeddings:', error);
       throw new Error(`Embedding storage failed: ${error}`);
@@ -293,7 +286,6 @@ export class VectorStorageService {
 
     try {
       await this.table.delete(`documentId = '${documentId}'`);
-      console.log(`Deleted vectors for document ${documentId}`);
     } catch (error) {
       console.error('Failed to delete document vectors:', error);
       throw new Error(`Document vector deletion failed: ${error}`);
@@ -417,7 +409,6 @@ export class VectorStorageService {
 
     try {
       await this.table.delete('true');
-      console.log('Cleared all vector data');
     } catch (error) {
       console.error('Failed to clear vector data:', error);
       throw new Error(`Vector data clearing failed: ${error}`);

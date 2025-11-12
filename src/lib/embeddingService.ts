@@ -72,16 +72,12 @@ export class EmbeddingService {
 
   private async _initializePipeline(): Promise<void> {
     try {
-      console.log('Initializing embedding model:', EMBEDDING_CONFIG.model);
-      const startTime = Date.now();
-
-      this.pipeline = await pipeline(
+      this.pipeline = (await pipeline(
         'feature-extraction',
         EMBEDDING_CONFIG.model
-      ) as any; // Type assertion for Transformers.js compatibility
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      )) as any; // Type assertion for Transformers.js compatibility
 
-      const initTime = Date.now() - startTime;
-      console.log(`Embedding model initialized in ${initTime}ms`);
       this.isInitialized = true;
     } catch (error) {
       console.error('Failed to initialize embedding pipeline:', error);

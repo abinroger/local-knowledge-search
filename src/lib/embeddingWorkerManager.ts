@@ -59,7 +59,6 @@ export class EmbeddingWorkerManager {
       if (initResponse.type === 'INITIALIZED') {
         this.isInitialized = true;
         onProgress?.('AI model ready', 100, 'Embedding service initialized');
-        console.log('Embedding worker initialized successfully');
       } else if (initResponse.type === 'INITIALIZATION_ERROR') {
         throw new Error(initResponse.payload.error);
       }

@@ -11,7 +11,7 @@ const mockChunks: Map<string, DocumentChunk[]> = new Map();
 
 export const mockKnowledgeSearchService = {
   async initialize() {
-    console.log('Mock service initialized');
+    // Mock initialization
   },
 
   // Add method to clear all data for testing
