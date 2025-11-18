@@ -55,19 +55,15 @@ export const SearchInterface: React.FC<SearchInterfaceProps> = ({
       role="search"
       aria-label="Document search"
     >
-      <div className="relative">
-        {/* Search input container */}
-        <div
-          className={`
-            relative flex items-center w-full border rounded-lg transition-all duration-200
-            ${isFocused ? 'ring-2 ring-blue-500 border-blue-500' : 'border-gray-300'}
-            ${isDisabled ? 'bg-gray-50 opacity-60' : 'bg-white'}
-          `}
-        >
+      <div className="relative group">
+        {/* Search input container with enhanced styling */}
+        <div className="relative flex items-center">
           {/* Search icon */}
-          <div className="flex-shrink-0 pl-3">
+          <div className="absolute left-4 flex items-center pointer-events-none z-10">
             <svg
-              className={`h-5 w-5 ${isSearching ? 'text-blue-500' : 'text-gray-400'}`}
+              className={`h-5 w-5 transition-colors ${
+                isFocused ? 'text-primary-600' : 'text-neutral-400'
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -93,8 +89,16 @@ export const SearchInterface: React.FC<SearchInterfaceProps> = ({
             placeholder={isSearching ? "Searching..." : placeholder}
             disabled={isDisabled}
             className={`
-              flex-1 w-full py-3 px-3 text-gray-900 placeholder-gray-500 border-0 rounded-l-lg focus:outline-none focus:ring-0
-              ${isDisabled ? 'cursor-not-allowed' : ''}
+              w-full pl-12 pr-32 py-4
+              bg-white border-2 rounded-xl
+              text-neutral-900 placeholder-neutral-400
+              transition-all duration-200
+              ${isFocused
+                ? 'border-primary-500 ring-4 ring-primary-500/10 shadow-lg'
+                : 'border-neutral-200 hover:border-neutral-300'
+              }
+              ${isDisabled ? 'cursor-not-allowed opacity-60' : ''}
+              focus:outline-none
             `}
             aria-label="Search query"
             aria-describedby={hasQuery ? "search-hint" : undefined}
@@ -102,11 +106,11 @@ export const SearchInterface: React.FC<SearchInterfaceProps> = ({
             spellCheck={false}
           />
 
-          {/* Loading spinner or clear button */}
-          <div className="flex-shrink-0 pr-3">
+          {/* Clear button or loading spinner */}
+          <div className="absolute right-24 flex items-center">
             {isSearching ? (
               <div
-                className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"
+                className="animate-spin rounded-full h-5 w-5 border-2 border-primary-600 border-t-transparent"
                 aria-label="Searching"
                 role="status"
               />
@@ -114,7 +118,7 @@ export const SearchInterface: React.FC<SearchInterfaceProps> = ({
               <button
                 type="button"
                 onClick={handleClear}
-                className="text-gray-400 hover:text-gray-600 transition-colors duration-150"
+                className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-colors duration-150"
                 aria-label="Clear search"
                 disabled={isDisabled}
               >
@@ -135,46 +139,39 @@ export const SearchInterface: React.FC<SearchInterfaceProps> = ({
               </button>
             ) : null}
           </div>
+
+          {/* Search button */}
+          <button
+            type="submit"
+            disabled={!hasQuery || isDisabled}
+            className={`
+              absolute right-2 top-1/2 -translate-y-1/2
+              px-6 py-2.5 text-sm font-semibold rounded-lg
+              transition-all duration-200
+              ${hasQuery && !isDisabled
+                ? 'bg-primary-600 text-white hover:bg-primary-700 shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95'
+                : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'
+              }
+              focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+            `}
+            aria-label="Submit search"
+          >
+            Search
+          </button>
         </div>
-
-        {/* Search button */}
-        <button
-          type="submit"
-          disabled={!hasQuery || isDisabled}
-          className={`
-            absolute right-1 top-1 bottom-1 px-4 text-sm font-medium rounded-md transition-all duration-200
-            ${hasQuery && !isDisabled
-              ? 'bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-              : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-            }
-          `}
-          aria-label="Submit search"
-        >
-          Search
-        </button>
       </div>
-
-      {/* Search hint */}
-      {hasQuery && (
-        <p
-          id="search-hint"
-          className="mt-2 text-xs text-gray-500"
-        >
-          Press Enter or click Search to find documents containing "{query.trim()}"
-        </p>
-      )}
 
       {/* Keyboard shortcuts hint */}
       {!hasQuery && !isDisabled && (
-        <div className="mt-2 flex items-center space-x-4 text-xs text-gray-500">
-          <div className="flex items-center space-x-1">
-            <kbd className="px-1.5 py-0.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">
+        <div className="mt-3 flex items-center gap-4 text-xs text-neutral-500">
+          <div className="flex items-center gap-1.5">
+            <kbd className="px-2 py-1 text-xs font-semibold text-neutral-700 bg-neutral-100 border border-neutral-300 rounded shadow-sm">
               Enter
             </kbd>
             <span>to search</span>
           </div>
-          <div className="flex items-center space-x-1">
-            <kbd className="px-1.5 py-0.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-300 rounded">
+          <div className="flex items-center gap-1.5">
+            <kbd className="px-2 py-1 text-xs font-semibold text-neutral-700 bg-neutral-100 border border-neutral-300 rounded shadow-sm">
               Esc
             </kbd>
             <span>to clear</span>

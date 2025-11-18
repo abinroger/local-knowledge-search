@@ -19,7 +19,10 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   return (
     <div className={`flex flex-col items-center justify-center text-center p-8 ${className}`}>
-      <div className="w-16 h-16 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl flex items-center justify-center mb-6">
+      <div
+        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
+        style={{ background: 'linear-gradient(to bottom right, #f5f5f5, #e5e5e5)' }}
+      >
         <svg className="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={icon} />
         </svg>
@@ -55,7 +58,10 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div className={`bg-white/50 backdrop-blur border border-neutral-200/50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary-300/50 ${className}`}>
-      <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-4">
+      <div
+        className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+        style={{ background: 'linear-gradient(to bottom right, #6366f1, #4f46e5)' }}
+      >
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
         </svg>
